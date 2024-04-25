@@ -70,11 +70,13 @@ class CmdDispatcher:
             if not self.cmds_avail:
                 print("No subcommands")
                 return None
+            names_list = [] 
             for x in self.cmds_avail:
                 if not x.name.startswith('__'):
-                    print(x.name)
+                    names_list.append(x.name)
+            names_str = '\n'.join(names_list)  #
+            terminal.display_string(names_str)
             return None
-
         for x in self.cmds_avail:
             if cmds[depth] == x.name:
                 if len(cmds) > depth:

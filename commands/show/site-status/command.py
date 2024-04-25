@@ -2,10 +2,13 @@ from redis_handler import RedisHandler
 from site_status import SiteStatus
 from charging_stations_status import ChargingStationsStatus
 from dnmasq_leases import DnsmasqLeases
+from terminal_screen import TerminalScreen
 import json
 
 class Command():
-    def __init__(self, cmds):
+    def __init__(self, cmds, terminal_screen: TerminalScreen):
+        self.cmds = cmds
+        self.terminal_screen = terminal_screen
         self.redis_handler = RedisHandler()
         self.key_site_status = 'cgw/SiteStatus'
         self.key_charging_stations = 'cgw/ChargingStationsStatus'
