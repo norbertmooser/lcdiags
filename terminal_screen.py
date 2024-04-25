@@ -104,6 +104,17 @@ class TerminalScreen:
         # Store the thread in the list
         self.running_threads.append((interval_thread, stop_event))
         
+    def display_string(self, message: str) -> None:
+        """
+        Display a string in the output field.
+
+        Args:
+            message (str): The string to be displayed.
+        """
+        self.display(message)
+
+    # Other methods and definitions follow..
+        
     def start_counter_process(self):
         """
         Start a subprocess printing a counter into the output screen.
